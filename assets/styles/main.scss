@@ -1,0 +1,52 @@
+@import "./vars";
+
+
+@mixin h1() {
+    color:$tb ;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 41px;
+    @content;
+
+}
+
+@mixin h2 {
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+/* Активен */
+color: $tb;
+@content;
+
+}
+
+@mixin h3 {
+font-size: 16px;
+line-height: 19px;
+/* Активен */
+color: #31456A;
+@content;
+
+}
+
+@mixin h4 {
+font-size: 14px;
+line-height: 16px;
+color: #31456A;
+@content;
+
+}
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @content;
+}
+
+@mixin hover($color) {
+    &:hover{
+        color: $color;
+        @content;
+    }
+}
