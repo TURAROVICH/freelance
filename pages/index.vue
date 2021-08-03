@@ -2,8 +2,9 @@
   <div class="main">
      <div class="wrapper">
           <div class="welcome-part">
-            <img src="../assets/imgs/welcome-part.png" alt="">
+            <img class="main-img" src="../assets/imgs/welcome-part.png" alt="">
             <img src="../assets/imgs/ura.png" class="abs" alt="">
+            <img class="shadow" src="../assets/imgs/shadow.png" alt="">
             <div class="content">
               <img src="../assets/imgs/el.png" alt="">
               <div class="title">
@@ -117,6 +118,8 @@
         </div>
 
   <div class="snippet s-3">
+    
+             <div class="btn show"><span>ПОСМОТРЕТЬ ЗАДАНИЯ</span></div>
           <img src="../assets/imgs/s-3.svg" alt="">
 
           <div class="content">
@@ -229,7 +232,7 @@
               <div class="card-2">
             <img src="../assets/imgs/joke-1.png" alt="">
           </div>
-          <div class="card-1">
+          <div class="card-3">
             <img src="../assets/imgs/joke.png" alt="">
           </div>
           </div>
@@ -271,6 +274,9 @@ export default {
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import "../assets/styles/main.scss";
 
+.show{
+  display: none;
+}
 .center{
   @include center;
 }
@@ -334,6 +340,22 @@ export default {
       .title{
         @include h2;
       }
+    }
+
+    @media (max-width:670px) {
+      .grid-1,.grid-2{
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        div img{
+          width: 100%;
+        }
+        .wrapper{
+          width: 100%;
+        }
+      }
+      
     }
   }
 
@@ -409,6 +431,21 @@ export default {
 
 }
 }
+
+
+@media screen and (max-width:600px) {
+  & > .slider-container{
+    width: 100%;
+    .slide > .slide-head{
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .done{
+      margin: 8px 0;
+    }
+  }
+}
  
 }
 
@@ -440,14 +477,17 @@ export default {
       text-align: center;
     }
   }
+  @media screen and (max-width:640px) {
+    & .advantages-cards{
+      flex-direction: column;
+    }
+  }
 }
 
 
 
 
-.s-3{
-  margin-top: 60px;
-}
+
 .snippet{
   display: flex;
   justify-content: center;
@@ -468,13 +508,43 @@ export default {
   .des{
     @include h4;
   }
+  @media screen and (max-width:1070px) {
+    &{
+      flex-direction: column-reverse;
+      gap :0;
+    }
+    .content{
+      width: 100%;
+    }
+    .btn{
+      display: none;
+    }
+    .show{
+      display: flex;
+      margin: 20px 0;
+    }
+    .m-title{
+      text-align: center;
+    }
+  }
+  @media screen and (max-width:500px) {
+    & > img{
+      width: 90%;
+    }
+  }
 }
 
 .s-2{
   flex-direction: row-reverse;
+  @media screen and (max-width:1070px) {
+    flex-direction: column-reverse;
+    gap:0;
+  }
 }
 
-
+.s-3{
+  margin-top: 60px;
+}
 
 .with{
   display: flex;
@@ -504,6 +574,16 @@ export default {
     @include center;
     span{
       @include h3;
+    }
+  }
+
+  @media (max-width:1070px) {
+    &{
+      flex-direction: column-reverse;
+      margin: 30px 0 50px 0;
+    }
+    .content{
+      width: 100%;
     }
   }
 }
@@ -554,6 +634,23 @@ export default {
       }
     }
   }
+
+
+  @media (max-width:1125px) {
+    &>img{
+      margin-left: 0;
+    }
+  }
+  @media (max-width:865px) {
+    & > img{
+      width: 95%;
+    }
+  }
+  @media (max-width:555px) {
+    .links{
+      flex-wrap: wrap;
+    }
+  }
 }
 
 
@@ -570,6 +667,12 @@ export default {
   .des{
     @include h3;
   }
+  @media (max-width:750px) {
+    &{
+      width: 100%;
+      padding: 0 30px;
+    }
+  }
 }
 
 
@@ -580,11 +683,19 @@ export default {
     display: flex;
     justify-content: center;
     gap:100px;
+    .main-img{
+      z-index: 20;
+    }
     .abs{
       position: absolute; 
       top: -80px;
       left: 0;
       z-index: 10;
+    }
+    .shadow{
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
 
     .content{
@@ -628,6 +739,53 @@ export default {
         }
       }
     }
+
+    @media  (max-width:1066px) {
+      &{
+        flex-direction: column;
+        gap :0;
+        align-items: center;
+        justify-content: center;
+      }
+      .abs{
+        left:30%;
+      }
+      &>img{
+        width: 50%;
+      }
+      .content{
+        background: $main-bg;
+        border-radius: 50%;
+        padding: 0 50px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width:530px) {
+      .content{
+        padding: 0;
+        border-radius: 0;
+        background: transparent;
+        &>img{
+          margin: 50px 0 0 0;
+        width: 100%;
+        background: $main-bg;
+        padding: 20px 30px;
+      }
+      .btns{
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        justify-self: center;
+      }
+      }
+       
+    }
+    @media (max-width:1125px) {
+     & .shadow{
+        display: none;
+      }
+    }
   }
 
 
@@ -638,7 +796,7 @@ export default {
   url("../assets/imgs/bg2.png") no-repeat,
   url("../assets/imgs/bg.png") no-repeat,$main-bg;
  background-size: 100% auto;
- background-position: 0 0, 0 250px,0 1450px;
+ background-position: 0 0, 0 150px,0 1100px;
   display: flex;
   justify-content: center;
   
@@ -647,7 +805,14 @@ export default {
     width: 90%;
     padding: 30px 0;
   }
+
+
 }
+  @media screen and (max-width:1177px) {
+   .main{
+     background: #fff;
+   } 
+  }
 </style>
 
 
