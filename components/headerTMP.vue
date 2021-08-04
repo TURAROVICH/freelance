@@ -18,36 +18,64 @@
                         <nuxt-link to="/">
                             Исполнители
                         </nuxt-link>
+                         <nuxt-link v-if="user" to="/">
+                           Отклики и предложения
+                        </nuxt-link>
                     </div>
                 </div>
 
-                <div @click="auth=!auth" class="btn">
+                <div @click="auth=!auth" v-if="!user" class="btn">
                     <span>
                         АВТОРИЗУЙТЕСЬ
                     </span>
                 </div>
+                <div v-if="user" class="icons">
+                    <img src="../assets/imgs/message.svg" alt="">
+                    <img src="../assets/imgs/union.png" alt="">
+                    <img src="../assets/imgs/notknow.png" alt="">
+                </div>
+
+
+                <img @click="profile=!profile" v-if="user" class="prof" src="../assets/imgs/profile.png" width="32" height="32" style="border-radius:50%;" alt="">
+
+
             </div>
+
             <transition name="slide-fade">
-            <headerModal v-if="isModal"/>
+           <profile-modal v-if="profile"/>
             </transition>
+
+            <transition name="slide-fade">
+            <headerModal :user="user" v-if="isModal"/>
+            </transition>
+
+
             <transition name="auth">
             <Modal v-if="auth" @close="auth=false" :mt="300">
               <component :is="authPage" @regis="regis" @login="login" @reset="reset" @send="page='send'"/>
             </Modal>
             </transition>
+
+
         </div>
 </template>
+
+
+
 
 <script>
 import login from './auth/login.vue'
 import Regis from './auth/register.vue'
 import Reset from './auth/resetPassword.vue'
 import send from './auth/send.vue'
+import profileModal from './profile/profileModal.vue'
 export default {
     data:()=>({
         isModal:false,
         auth:false,
-        page:'login'
+        page:'login',
+        profile:false,
+        user:true
     }),
     computed:{
         authPage(){
@@ -70,7 +98,8 @@ export default {
         login,
         Regis,
         Reset,
-        send
+        send,
+        profileModal
     }
 
 }
@@ -78,8 +107,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/styles/main.scss";
-
-
+.prof{
+    display: none;
+}
+.icons{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
 
 
 .slide-fade-enter-active {
@@ -184,6 +219,14 @@ export default {
                display: none;
             }
         }
+    }
+}
+@media (max-width:1200px) {
+    .icons{
+        display: none;
+    }
+    .prof{
+        display: block;
     }
 }
 </style>
