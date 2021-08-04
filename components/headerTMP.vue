@@ -31,7 +31,7 @@
             <headerModal v-if="isModal"/>
             </transition>
             <transition name="auth">
-            <Modal v-if="auth" @close="auth=false" :mt="65">
+            <Modal v-if="auth" @close="auth=false" :mt="300">
               <component :is="authPage" @regis="regis" @login="login" @reset="reset" @send="page='send'"/>
             </Modal>
             </transition>
