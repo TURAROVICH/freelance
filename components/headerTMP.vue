@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <div class="btn">
+                <div @click="auth=!auth" class="btn">
                     <span>
                         АВТОРИЗУЙТЕСЬ
                     </span>
@@ -30,19 +30,58 @@
             <transition name="slide-fade">
             <headerModal v-if="isModal"/>
             </transition>
+            <transition name="auth">
+            <Modal v-if="auth" @close="auth=false" :mt="65">
+              <component :is="authPage" @regis="regis" @login="login" @reset="reset" @send="page='send'"/>
+            </Modal>
+            </transition>
         </div>
 </template>
 
 <script>
+import login from './auth/login.vue'
+import Regis from './auth/register.vue'
+import Reset from './auth/resetPassword.vue'
+import send from './auth/send.vue'
 export default {
     data:()=>({
-        isModal:false
-    })
+        isModal:false,
+        auth:false,
+        page:'login'
+    }),
+    computed:{
+        authPage(){
+            return this.page
+            }
+    },
+    methods:{
+        login(){
+            this.page = 'login'
+        },
+        regis(){
+            this.page = 'Regis'
+        },
+        reset(){
+            this.page ='Reset'
+        }
+
+    },
+    components:{
+        login,
+        Regis,
+        Reset,
+        send
+    }
+
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/styles/main.scss";
+
+
+
+
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
@@ -54,6 +93,17 @@ export default {
   transform: translateX(- 30vw);
   opacity: 0;
 }
+
+.auth-enter-active {
+  transition: all .3s ease;
+}
+
+.auth-enter, .auth-leave-to {
+  opacity: 0;
+}
+
+
+
 .header{
     @include center;
     width: 100%;

@@ -1,0 +1,82 @@
+
+.container-modal{
+    input:not([show="false"]){
+        background: #F4F9FE;
+        box-shadow: inset 2px 2px 3px rgba(136, 165, 191, 0.48);
+        border-radius: 20px;
+        width: 374px;
+        height: 43px;
+        border:none;
+        outline: none;
+        text-align: center;
+    }
+    .password{
+        width: 374px;
+        height: 43px;
+        @include center;
+        background: #F4F9FE;
+        box-shadow: inset 2px 2px 3px rgba(136, 165, 191, 0.48);
+        border-radius: 20px;
+        padding: 0 10px;
+        &>input{
+            width: 90%;
+            height: 43px;
+            background: transparent;
+            border:none;
+            outline: none;
+            text-align: center;
+        } 
+    }
+    ::placeholder{
+        color: $tg;
+    }
+    .icons{
+        @include center{
+            gap:10px;
+        }
+    }
+    width: 100%;
+    @include center{
+        gap:25px;
+        flex-direction: column
+    }
+    .title{
+        @include h2;
+    }
+    .des{
+        @include h4{
+            color: $tg;
+        }
+    }
+    .input-2{
+        @include center{
+        gap:15px;
+        flex-direction: column
+        }
+       
+    }
+    .l {
+            @include h4{
+                color:#4097E3;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+    }
+    .send{
+        @include h4{
+            text-align: center;
+        }
+    }
+
+    @media (max-width:410px) {
+        & input:not([show="false"]){
+            width: 90%;
+        }
+        .input-2{
+            width: 100%;
+        }
+        & .password{
+            width: 90%;
+        }
+    }
+}

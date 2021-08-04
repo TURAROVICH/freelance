@@ -195,7 +195,7 @@
       </div>
      </div>
       <transition name="slide-fade">
-       <Modal @close="show=false" v-if="show">
+       <Modal :mt="500" @close="show=false" v-if="show">
             <img src="../assets/imgs/joke.png" width="100%" style="position:static;" alt="">
            <div class="title-modal">
               Текст новости

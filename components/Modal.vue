@@ -1,6 +1,6 @@
 <template>
 <div class="container-main">
-    <div class="main">
+    <div class="main" :style="{'margin-top':`${mt}px`}">
         <div class="container">
             <slot/>
         </div>
@@ -8,6 +8,13 @@
     </div>
 </div>
 </template>
+
+<script>
+export default {
+    props:['mt']
+}
+</script>
+
 
 <style lang="scss" scoped>
 .container-main{
@@ -47,14 +54,14 @@ overflow-x: scroll;
 }
 }
 .main{
-    margin: 500px 0  100px 0;
+    margin:0 0  100px 0;
     width: 60%;
     padding: 50px 80px;
     position: relative;
 background: #F7F9FF;
 box-shadow: -4px 4px 15px rgba(49, 69, 106, 0.2), 1px 1px 25px rgba(136, 165, 191, 0.15);
 border-radius: 6px;
-    img{
+    &>img{
         position: absolute;
         top: 0;
         right: 0;
