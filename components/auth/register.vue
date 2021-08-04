@@ -38,6 +38,12 @@
 
                     </div>
                      <input type="text" placeholder="E-mail">
+
+                            <label class="container-c">Принимаю условия <nuxt-link to="#">соглашения</nuxt-link>
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            </label>
+
                     <div class="btn">
                         <span>Регистрация</span>
                     </div>
@@ -59,4 +65,81 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/styles/main.scss';
 @import '../../assets/styles/auth.scss';
+
+
+.container-c {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  @include h4;
+  a{
+   @include h4 
+  }
+  @include center;
+  gap  :5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-c input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background: #F9FAFF;
+box-shadow: inset -2px -2px 4px #FFFFFF, inset 2px 2px 2px rgba(136, 165, 191, 0.48);
+border-radius: 2px;
+}
+
+/* On mouse-over, add a grey background color */
+.container-c:hover input ~ .checkmark {
+   background: #F9FAFF;
+box-shadow: inset -2px -2px 4px #FFFFFF, inset 2px 2px 2px rgba(136, 165, 191, 0.48);
+border-radius: 2px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-c input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-c input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-c .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid  #31456A;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 </style>
