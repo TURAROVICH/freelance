@@ -2,6 +2,11 @@
     <div class="header">
             <div class="wrapper">
                 <div class="container">
+                    <div @click="isModal=!isModal" class="burger">
+                        <div class="bline" :class="{active:isModal}"></div>
+                        <div class="bline" :class="{active:isModal}"></div>
+                        <div class="bline" :class="{active:isModal}"></div>
+                    </div>
                 <img src="@/assets/imgs/Logo.png" alt="">
                     <div class="nav">
                         <nuxt-link to="/">
@@ -22,12 +27,33 @@
                     </span>
                 </div>
             </div>
+            <transition name="slide-fade">
+            <headerModal v-if="isModal"/>
+            </transition>
         </div>
 </template>
 
+<script>
+export default {
+    data:()=>({
+        isModal:false
+    })
+}
+</script>
 
 <style lang="scss" scoped>
 @import "../assets/styles/main.scss";
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateX(- 30vw);
+  opacity: 0;
+}
 .header{
     @include center;
     width: 100%;
@@ -37,6 +63,9 @@
     z-index: 5000;
     top: 0;
     left: 0;
+    .burger{
+        display: none;
+    }
     .wrapper{
         width: 90%;
         padding: 10px 0;
@@ -77,6 +106,33 @@
     @media (max-width:610px) {
         .wrapper .nav{
             display: none;
+        }
+        .burger{
+            display: flex;
+            flex-direction: column;
+            gap:5px;
+            .bline{
+                width: 30px ;
+                height: 5px;
+                background: #fff;
+            }
+            .active:nth-child(1){
+                transition: all .9s ease;
+                position: absolute;
+                top: 30px;
+                left: 25px;
+                transform: rotate(45deg);
+            }
+            .active:nth-child(2){
+                transition: all .9s ease;
+                position: absolute;
+                top: 30px;
+                left: 25px;
+                transform: rotate(- 45deg);
+            }
+            .active:nth-child(3){
+               display: none;
+            }
         }
     }
 }

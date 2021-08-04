@@ -242,6 +242,7 @@
 
       </div>
      </div>
+      <transition name="slide-fade">
        <Modal @close="show=false" v-if="show">
             <img src="../assets/imgs/joke.png" width="100%" style="position:static;" alt="">
            <div class="title-modal">
@@ -258,6 +259,8 @@
                 </div>
                 </div>
        </Modal>
+      </transition>
+
   </div>
 </template>
 
@@ -273,6 +276,17 @@ export default {
 <style lang="scss" scoped>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 @import "../assets/styles/main.scss";
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateY(- 50vh);
+  opacity: 0;
+}
 
 .show{
   display: none;
@@ -348,6 +362,10 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;
+        div{
+          width: 100%;
+        }
         div img{
           width: 100%;
         }
@@ -584,6 +602,11 @@ export default {
     }
     .content{
       width: 100%;
+    }
+  }
+  @media (max-width:380px) {
+    & > img{
+      width: 95%;
     }
   }
 }

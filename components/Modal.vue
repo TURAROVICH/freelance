@@ -59,5 +59,15 @@ border-radius: 6px;
         top: 0;
         right: 0;
     }
+
+
+   
 }
+ @media (max-width:533px) {
+       .main{
+            width: 90%;
+            padding: 20px;
+            margin: 300px 0 100px 0;
+       } 
+    }
 </style>
