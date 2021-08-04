@@ -699,7 +699,7 @@ export default {
   url("../assets/imgs/bg2.png") no-repeat,
   url("../assets/imgs/bg.png") no-repeat,$main-bg;
  background-size: 100% auto;
- background-position: 0 -200px, 0 150px,0 950px;
+ background-position: 0 -100px, 0 50px,0 1300px;
   display: flex;
   justify-content: center;
   
