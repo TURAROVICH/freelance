@@ -39,7 +39,7 @@
                 </nuxt-link>
             </div>
         </div>
-        <div class="often-query">
+        <div @click="$router.push('/profile/often-query')" class="often-query">
             <div class="title">Частые вопросы</div>
             <div class="queries">
                 <div class="query">Сколько предложений я получу?</div>
