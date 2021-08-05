@@ -28,7 +28,7 @@
                     <img src="../../assets/imgs/common-settings.png" alt="">
                     <div class="text">Общие</div>
                 </nuxt-link>
-                <nuxt-link active-class="active-link" to="#" class="card">
+                <nuxt-link active-class="active-link" to="/profile/job-subscription" class="card">
                     <img src="../../assets/imgs/follow.png" alt="">
                     <div class="text">Подписка 
                     на задания</div>

@@ -36,7 +36,11 @@ color: #31456A;
 @content;
 
 }
-
+@mixin h5{
+font-size: 12px;
+line-height: 14px;
+color: #31456A;
+}
 @mixin center {
     display: flex;
     align-items: center;
@@ -49,4 +53,21 @@ color: #31456A;
         color: $color;
         @content;
     }
+}
+
+@mixin btn-blue{
+    border-radius:20px ;
+    background: linear-gradient(215.31deg, #64DBF5 9.73%, #2567E7 71.72%);
+    border-radius: 100px;
+    width: 238px;
+    height: 42px;
+    @include center;
+    span{
+        @include h4{
+            color:#fff;
+        }
+    }
+
+    @content;
+
 }

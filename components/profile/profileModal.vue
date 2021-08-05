@@ -24,16 +24,16 @@
         <div class="settings-nav">
             <div class="title">Настройки</div>
 
-            <div class="grid">
+            <div class="grid" @click="$emit('close')">
                 <nuxt-link active-class="active-link" to="#" class="card">
                     <img src="../../assets/imgs/settings.png" alt="">
                     <div class="text">Профиль</div>
                 </nuxt-link>
-                <nuxt-link active-class="active-link" to="/profile/common-settings" class="card active-link">
+                <nuxt-link active-class="active-link" to="/profile/common-settings" class="card ">
                     <img src="../../assets/imgs/common-settings.png" alt="">
                     <div class="text">Общие</div>
                 </nuxt-link>
-                <nuxt-link active-class="active-link" to="#" class="card">
+                <nuxt-link active-class="active-link" to="/profile/job-subscription" class="card">
                     <img src="../../assets/imgs/follow.png" alt="">
                     <div class="text">Подписка 
                     на задания</div>
@@ -139,7 +139,7 @@ border-radius: 6px;
         border-radius: 8px;
         .text{
             @include h4{
-                color: #4097E3;
+                color: $tg;
                 text-align: center;
             }
         } 
@@ -151,7 +151,11 @@ border-radius: 6px;
     }
     .active-link{
        box-shadow: inset -2px -2px 4px #FFFFFF, inset 2px 2px 2px rgba(136, 165, 191, 0.48);
+       .text{
+           color:#4097E3;
+       }
     }
+    
 
     .profile{
         margin: 0 0 40px 0;

@@ -7,7 +7,7 @@
                         <div class="bline" :class="{active:isModal}"></div>
                         <div class="bline" :class="{active:isModal}"></div>
                     </div>
-                <img src="@/assets/imgs/Logo.png" alt="">
+               <nuxt-link to="/" style="text-decoration:none;"> <img src="@/assets/imgs/Logo.png" alt=""></nuxt-link>
                     <div class="nav">
                         <nuxt-link to="/">
                     Создать задание
@@ -42,7 +42,7 @@
             </div>
 
             <transition name="slide-fade">
-           <profile-modal v-if="profile"/>
+           <profile-modal v-if="profile" @close="profile=false"/>
             </transition>
 
             <transition name="slide-fade">

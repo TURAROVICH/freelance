@@ -186,19 +186,27 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/styles/main.scss';
-.btn-blue{
-border-radius:20px ;
-background: linear-gradient(215.31deg, #64DBF5 9.73%, #2567E7 71.72%);
-border-radius: 100px;
-width: 238px;
-height: 42px;
-@include center;
-span{
-    @include h4{
-        color:#fff;
-    }
+.btn-blue
+{
+    @include btn-blue;
 }
+
+.swic {
+display: flex;
+margin: 0 0 0 30px;
+gap :20px;
+justify-content: space-between;
+align-items: center;
+  & > span{
+       width: 152px;
+      color: #8CA2B7;
+        font-size: 14px;
+        line-height: 21px;
+  }
 }
+
+
+
  .password{
         width: 254px;
         height: 33px;
@@ -253,18 +261,7 @@ padding: 2px 10px;
                 color:$tg;
             }
         }
-        .swic{
-            display: flex;
-            margin: 0 0 0 30px;
-            gap :20px;
-            justify-content: space-between;
-            align-items: center;
-            span{
-                @include h4;
-                color: $tg;
-                width: 152px;
-            }
-        }
+       
         a{
             @include h4{
                 color: rgba(61, 149, 226, 1);

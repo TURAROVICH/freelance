@@ -624,7 +624,7 @@ export default {
         align-self: flex-end;
         justify-self: flex-end;
         flex-direction: column;
-        gap :20px;
+        gap :0;
         .link a{
           color: $tg;
         }
@@ -680,6 +680,7 @@ export default {
         justify-content: center;
         align-self: center;
         justify-self: center;
+        gap:0;
       }
       }
        
