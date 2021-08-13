@@ -75,7 +75,7 @@ export default {
         auth:false,
         page:'login',
         profile:false,
-        user:true
+        user:false
     }),
     computed:{
         authPage(){
